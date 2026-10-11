@@ -224,6 +224,7 @@ function render() {
   all.forEach(i => { n += i.qty; t += i.qty * i.price; });
   badge.textContent = n; badge.hidden = !n;
   totalEl.textContent = fmt(t); pay.disabled = !n; note.textContent = "";
+  try { localStorage.setItem("sashashop-cart", JSON.stringify(Object.fromEntries(all.map(i => [i.id, i.qty])))); } catch (e) {}
   list.innerHTML = all.length ? all.map(i => `<div class="line"><div class="th">${i.thumb}</div><div><div class="nm">${i.name}</div><div class="pr">${fmt(i.price)}</div><div class="qty"><button data-id="${i.id}" data-d="-1" aria-label="Меньше">−</button><span>${i.qty}</span><button data-id="${i.id}" data-d="1" aria-label="Больше">+</button></div></div><div class="sum">${fmt(i.qty * i.price)}</div></div>`).join("") : '<p class="empty">Корзина пуста. Добавьте вещь из каталога.</p>';
 }
 $("shop").addEventListener("click", e => {
@@ -258,6 +259,13 @@ document.querySelectorAll(".cats a").forEach(a => a.addEventListener("click", ()
   document.querySelectorAll("#shop .item").forEach(i => { i.hidden = c === "all" ? !i.dataset.best : i.dataset.cat !== c; });
   $("sec").textContent = c === "all" ? "Лучшие продажи в этом месяце" : c;
 }));
+try {
+  const saved = JSON.parse(localStorage.getItem("sashashop-cart") || "{}");
+  for (const id in saved) {
+    const a = document.querySelector(`#shop article[data-id="${id}"]`);
+    if (a && saved[id] > 0) items[id] = {id, name: a.dataset.name, price: +a.dataset.price, thumb: a.querySelector("svg").outerHTML, qty: saved[id]};
+  }
+} catch (e) {}
 render();
 </script>
 </body>
