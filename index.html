@@ -34,7 +34,7 @@ nav{display:flex;align-items:center;gap:32px}
 .hero p{margin:24px auto 0;color:var(--muted);max-width:36ch}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px 14px}
 @media (min-width:1000px){.grid{grid-template-columns:repeat(5,1fr);gap:40px 24px}}
-.pic{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--line);margin-bottom:16px}
+.pic{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:18px;background:var(--line);margin-bottom:16px}
 .pic img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
 .pic svg{width:100%;height:100%;display:block;transition:transform .6s}
 .item:hover .pic img,.item:hover .pic svg{transform:scale(1.03)}
@@ -81,7 +81,7 @@ a:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 .ph button{border:0;background:none;color:var(--fg);font-size:30px;line-height:1;cursor:pointer;padding:0 4px}
 .list{flex:1;overflow:auto;padding:0 24px}
 .line{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
-.line .th{width:64px;aspect-ratio:3/4;background:var(--line)}
+.line .th{width:64px;aspect-ratio:3/4;background:var(--line);border-radius:10px;overflow:hidden}
 .th img,.th svg{width:100%;height:100%;object-fit:cover;display:block}
 .line .nm{font-size:15px}
 .line .pr{color:var(--muted);font-size:14px}
@@ -120,44 +120,80 @@ footer{padding:48px 0;color:var(--muted);font-size:14px;border-top:1px solid var
 
 <h2 class="wrap sec" id="sec">Лучшие продажи в этом месяце</h2>
 <main class="wrap grid" id="shop">
-  <article class="item" data-id="sweater" data-cat="Свитера" data-name="Водолазка" data-price="345">
-    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Водолазка"><rect width="300" height="400" fill="#e8e6e1"/>
-<path d="M112 92L130 78H170L188 92 238 118 250 310 220 314 210 180 206 322H94L90 180 80 314 50 310 62 118Z" fill="#9a9a98" stroke="#9a9a98" stroke-width="4" stroke-linejoin="round"/>
-<path d="M128 54H172V86Q150 100 128 86Z" fill="#86868a" stroke="#86868a" stroke-width="4" stroke-linejoin="round"/>
-<path d="M94 306H206" stroke="#7d7d7b" stroke-width="3" stroke-linecap="round"/></svg><button>В корзину</button></div>
+  <article class="item" data-id="sweater" data-cat="Свитера" data-name="Водолазка" data-price="345" data-best="1">
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Водолазка"><rect width="300" height="400" fill="#e8e6e1"/><path d="M112 92L130 78H170L188 92 238 118 250 310 220 314 210 180 206 322H94L90 180 80 314 50 310 62 118Z" fill="#9a9a98" stroke="#9a9a98" stroke-width="4" stroke-linejoin="round"/><path d="M128 54H172V86Q150 100 128 86Z" fill="#86868a" stroke="#86868a" stroke-width="4" stroke-linejoin="round"/><path d="M94 306H206" stroke="#86868a" stroke-width="3" stroke-linecap="round" fill="none"/></svg><button>В корзину</button></div>
     <div class="row"><span>Водолазка</span><span>345 €</span></div>
     <div class="sub">Кашемир, серый</div>
   </article>
-  <article class="item" data-id="jeans" data-cat="Джинсы" data-name="Джинсы" data-price="89">
-    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Джинсы"><rect width="300" height="400" fill="#e4e4e2"/>
-<path d="M98 62H202L216 340H160L150 180 140 340H84Z" fill="#3b3f46" stroke="#3b3f46" stroke-width="4" stroke-linejoin="round"/>
-<path d="M98 62H202V84H98Z" fill="#2c2f35"/>
-<path d="M150 84V180M106 90Q120 124 138 104M194 90Q180 124 162 104" stroke="#7b808a" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg><button>В корзину</button></div>
+  <article class="item" data-id="jeans" data-cat="Джинсы" data-name="Джинсы" data-price="89" data-best="1">
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Джинсы"><rect width="300" height="400" fill="#e4e4e2"/><path d="M98 62H202L216 340H160L150 180 140 340H84Z" fill="#3b3f46" stroke="#3b3f46" stroke-width="4" stroke-linejoin="round"/><path d="M98 62H202V84H98Z" fill="#2c2f35" stroke="#2c2f35" stroke-width="4" stroke-linejoin="round"/><path d="M150 84V180M106 90Q120 124 138 104M194 90Q180 124 162 104" stroke="#7b808a" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg><button>В корзину</button></div>
     <div class="row"><span>Джинсы</span><span>89 €</span></div>
     <div class="sub">Деним, графит</div>
   </article>
-  <article class="item" data-id="jacket" data-cat="Куртки" data-name="Куртка" data-price="129">
-    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Куртка"><rect width="300" height="400" fill="#e5e2dc"/>
-<path d="M108 80L132 68 150 90 168 68 192 80 238 110 252 300 222 304 212 170 206 320 94 320 88 170 78 304 48 300 62 110Z" fill="#4a5248" stroke="#4a5248" stroke-width="4" stroke-linejoin="round"/>
-<path d="M132 68L150 90 168 68 160 58H140Z" fill="#3a4139"/>
-<path d="M150 90V320M112 250H134M166 250H188" stroke="#8d978a" stroke-width="3" stroke-linecap="round" fill="none"/></svg><button>В корзину</button></div>
+  <article class="item" data-id="jacket" data-cat="Куртки" data-name="Куртка" data-price="129" data-best="1">
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Куртка"><rect width="300" height="400" fill="#e5e2dc"/><path d="M108 80L132 68 150 90 168 68 192 80 238 110 252 300 222 304 212 170 206 320 94 320 88 170 78 304 48 300 62 110Z" fill="#4a5248" stroke="#4a5248" stroke-width="4" stroke-linejoin="round"/><path d="M132 68L150 90 168 68 160 58H140Z" fill="#3a4139" stroke="#3a4139" stroke-width="4" stroke-linejoin="round"/><path d="M150 90V320M112 250H134M166 250H188" stroke="#8d978a" stroke-width="3" stroke-linecap="round" fill="none"/></svg><button>В корзину</button></div>
     <div class="row"><span>Куртка</span><span>129 €</span></div>
     <div class="sub">Нейлон, хаки</div>
   </article>
-  <article class="item" data-id="tee" data-cat="Футболки" data-name="Футболка" data-price="29">
-    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Футболка"><rect width="300" height="400" fill="#e4e4e2"/>
-<path d="M105 85L132 72Q150 92 168 72L195 85 240 125 217 155 196 140V310H104V140L83 155 60 125Z" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round"/></svg><button>В корзину</button></div>
+  <article class="item" data-id="tee" data-cat="Футболки" data-name="Футболка" data-price="29" data-best="1">
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Футболка"><rect width="300" height="400" fill="#e4e4e2"/><path d="M105 85L132 72Q150 92 168 72L195 85 240 125 217 155 196 140V310H104V140L83 155 60 125Z" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round"/></svg><button>В корзину</button></div>
     <div class="row"><span>Футболка</span><span>29 €</span></div>
     <div class="sub">Хлопок, чёрная</div>
   </article>
-  <article class="item" data-id="shirt" data-cat="Рубашки" data-name="Рубашка" data-price="59">
-    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Рубашка"><rect width="300" height="400" fill="#e6e8ea"/>
-<path d="M108 80L132 70 150 100 168 70 192 80 238 110 250 300 222 304 210 170 206 330H94L90 170 78 304 50 300 62 110Z" fill="#8fa3b8" stroke="#8fa3b8" stroke-width="4" stroke-linejoin="round"/>
-<path d="M132 70L150 100 168 70 158 62 150 74 142 62Z" fill="#fff"/>
-<path d="M150 100V330" stroke="#6f8399" stroke-width="2.5"/>
-<g fill="#fff"><circle cx="150" cy="135" r="3.5"/><circle cx="150" cy="180" r="3.5"/><circle cx="150" cy="225" r="3.5"/><circle cx="150" cy="270" r="3.5"/><circle cx="150" cy="310" r="3.5"/></g></svg><button>В корзину</button></div>
+  <article class="item" data-id="shirt" data-cat="Рубашки" data-name="Рубашка" data-price="59" data-best="1">
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Рубашка"><rect width="300" height="400" fill="#e6e8ea"/><path d="M108 80L132 70 150 100 168 70 192 80 238 110 250 300 222 304 210 170 206 330H94L90 170 78 304 50 300 62 110Z" fill="#8fa3b8" stroke="#8fa3b8" stroke-width="4" stroke-linejoin="round"/><path d="M132 70L150 100 168 70 158 62 150 74 142 62Z" fill="#fff" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M150 100V330" stroke="#6f8399" stroke-width="2.5" stroke-linecap="round" fill="none"/><g fill="#fff"><circle cx="150" cy="135" r="3.5"/><circle cx="150" cy="180" r="3.5"/><circle cx="150" cy="225" r="3.5"/><circle cx="150" cy="270" r="3.5"/><circle cx="150" cy="310" r="3.5"/></g></svg><button>В корзину</button></div>
     <div class="row"><span>Рубашка</span><span>59 €</span></div>
     <div class="sub">Хлопок, голубая</div>
+  </article>
+  <article class="item" data-id="crew" data-cat="Свитера" data-name="Джемпер" data-price="169" data-best="1">
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Джемпер"><rect width="300" height="400" fill="#ebe7e0"/><path d="M112 92L130 78H170L188 92 238 118 250 310 220 314 210 180 206 322H94L90 180 80 314 50 310 62 118Z" fill="#cdb99d" stroke="#cdb99d" stroke-width="4" stroke-linejoin="round"/><path d="M130 80Q150 100 170 80" stroke="#a8946f" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M94 306H206" stroke="#a8946f" stroke-width="3" stroke-linecap="round" fill="none"/></svg><button>В корзину</button></div>
+    <div class="row"><span>Джемпер</span><span>169 €</span></div>
+    <div class="sub">Шерсть, песочный</div>
+  </article>
+  <article class="item" data-id="jeans2" data-cat="Джинсы" data-name="Джинсы синие" data-price="95" data-best="1">
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Джинсы синие"><rect width="300" height="400" fill="#e6e8ea"/><path d="M98 62H202L216 340H160L150 180 140 340H84Z" fill="#5f82a8" stroke="#5f82a8" stroke-width="4" stroke-linejoin="round"/><path d="M98 62H202V84H98Z" fill="#496a8e" stroke="#496a8e" stroke-width="4" stroke-linejoin="round"/><path d="M150 84V180M106 90Q120 124 138 104M194 90Q180 124 162 104" stroke="#9bb5d1" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg><button>В корзину</button></div>
+    <div class="row"><span>Джинсы синие</span><span>95 €</span></div>
+    <div class="sub">Деним, синий</div>
+  </article>
+  <article class="item" data-id="puffer" data-cat="Куртки" data-name="Пуховик" data-price="189" data-best="1">
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Пуховик"><rect width="300" height="400" fill="#e4e4e2"/><path d="M108 80L132 68 150 90 168 68 192 80 238 110 252 300 222 304 212 170 206 320 94 320 88 170 78 304 48 300 62 110Z" fill="#222" stroke="#222" stroke-width="4" stroke-linejoin="round"/><path d="M132 68L150 90 168 68 160 54H140Z" fill="#444" stroke="#444" stroke-width="4" stroke-linejoin="round"/><path d="M92 140H208M90 190H210M92 240H208M94 290H206" stroke="#444" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M150 90V320" stroke="#444" stroke-width="3" stroke-linecap="round" fill="none"/></svg><button>В корзину</button></div>
+    <div class="row"><span>Пуховик</span><span>189 €</span></div>
+    <div class="sub">Нейлон, чёрный</div>
+  </article>
+  <article class="item" data-id="tee2" data-cat="Футболки" data-name="Футболка белая" data-price="29" data-best="1">
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Футболка белая"><rect width="300" height="400" fill="#dcdfe3"/><path d="M105 85L132 72Q150 92 168 72L195 85 240 125 217 155 196 140V310H104V140L83 155 60 125Z" fill="#fafafa" stroke="#c9cdd2" stroke-width="4" stroke-linejoin="round"/></svg><button>В корзину</button></div>
+    <div class="row"><span>Футболка белая</span><span>29 €</span></div>
+    <div class="sub">Хлопок, белая</div>
+  </article>
+  <article class="item" data-id="shirt2" data-cat="Рубашки" data-name="Рубашка белая" data-price="65" data-best="1">
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Рубашка белая"><rect width="300" height="400" fill="#dfe3e8"/><path d="M108 80L132 70 150 100 168 70 192 80 238 110 250 300 222 304 210 170 206 330H94L90 170 78 304 50 300 62 110Z" fill="#fff" stroke="#c9cdd2" stroke-width="4" stroke-linejoin="round"/><path d="M132 70L150 100 168 70 158 62 150 74 142 62Z" fill="#fff" stroke="#c9cdd2" stroke-width="2" stroke-linejoin="round"/><path d="M150 100V330" stroke="#c9cdd2" stroke-width="2.5" stroke-linecap="round" fill="none"/><g fill="#aeb4bb"><circle cx="150" cy="135" r="3.5"/><circle cx="150" cy="180" r="3.5"/><circle cx="150" cy="225" r="3.5"/><circle cx="150" cy="270" r="3.5"/><circle cx="150" cy="310" r="3.5"/></g></svg><button>В корзину</button></div>
+    <div class="row"><span>Рубашка белая</span><span>65 €</span></div>
+    <div class="sub">Хлопок, белая</div>
+  </article>
+  <article class="item" data-id="vneck" data-cat="Свитера" data-name="Свитер с V-вырезом" data-price="149" hidden>
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Свитер с V-вырезом"><rect width="300" height="400" fill="#e6e8ea"/><path d="M112 92L130 78H170L188 92 238 118 250 310 220 314 210 180 206 322H94L90 180 80 314 50 310 62 118Z" fill="#33415c" stroke="#33415c" stroke-width="4" stroke-linejoin="round"/><path d="M128 80L150 114 172 80" stroke="#232e44" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M94 306H206" stroke="#232e44" stroke-width="3" stroke-linecap="round" fill="none"/></svg><button>В корзину</button></div>
+    <div class="row"><span>Свитер с V-вырезом</span><span>149 €</span></div>
+    <div class="sub">Шерсть, тёмно-синий</div>
+  </article>
+  <article class="item" data-id="shorts" data-cat="Джинсы" data-name="Джинсовые шорты" data-price="49" hidden>
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Джинсовые шорты"><rect width="300" height="400" fill="#e9e6e1"/><path d="M98 62H202L212 232H160L150 180 140 232H88Z" fill="#8fb0cc" stroke="#8fb0cc" stroke-width="4" stroke-linejoin="round"/><path d="M98 62H202V84H98Z" fill="#7396b3" stroke="#7396b3" stroke-width="4" stroke-linejoin="round"/><path d="M150 84V180M106 90Q120 124 138 104M194 90Q180 124 162 104" stroke="#c3d6e6" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg><button>В корзину</button></div>
+    <div class="row"><span>Джинсовые шорты</span><span>49 €</span></div>
+    <div class="sub">Деним, голубые</div>
+  </article>
+  <article class="item" data-id="coat" data-cat="Куртки" data-name="Плащ" data-price="159" hidden>
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Плащ"><rect width="300" height="400" fill="#e8e5df"/><path d="M108 80L132 68 150 96 168 68 192 80 238 110 252 330 222 334 212 190 208 360 92 360 88 190 78 334 48 330 62 110Z" fill="#b9a99a" stroke="#b9a99a" stroke-width="4" stroke-linejoin="round"/><path d="M132 68L150 96 168 68 160 58H140Z" fill="#9b8b7c" stroke="#9b8b7c" stroke-width="4" stroke-linejoin="round"/><path d="M88 200H212" stroke="#9b8b7c" stroke-width="7" stroke-linecap="round" fill="none"/><path d="M150 96V360" stroke="#9b8b7c" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg><button>В корзину</button></div>
+    <div class="row"><span>Плащ</span><span>159 €</span></div>
+    <div class="sub">Хлопок, бежевый</div>
+  </article>
+  <article class="item" data-id="long" data-cat="Футболки" data-name="Лонгслив" data-price="35" hidden>
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Лонгслив"><rect width="300" height="400" fill="#e9e9e7"/><path d="M105 85L132 72Q150 92 168 72L195 85 238 110 252 300 224 304 210 150 196 142V310H104V142L90 150 76 304 48 300 62 110Z" fill="#8b8f94" stroke="#8b8f94" stroke-width="4" stroke-linejoin="round"/></svg><button>В корзину</button></div>
+    <div class="row"><span>Лонгслив</span><span>35 €</span></div>
+    <div class="sub">Хлопок, серый</div>
+  </article>
+  <article class="item" data-id="shirt3" data-cat="Рубашки" data-name="Рубашка льняная" data-price="75" hidden>
+    <div class="pic"><svg viewBox="0 0 300 400" role="img" aria-label="Рубашка льняная"><rect width="300" height="400" fill="#ece8e0"/><path d="M108 80L132 70 150 100 168 70 192 80 238 110 250 300 222 304 210 170 206 330H94L90 170 78 304 50 300 62 110Z" fill="#cdbfa7" stroke="#cdbfa7" stroke-width="4" stroke-linejoin="round"/><path d="M132 70L150 100 168 70 158 62 150 74 142 62Z" fill="#e6dcc8" stroke="#e6dcc8" stroke-width="2" stroke-linejoin="round"/><path d="M150 100V330" stroke="#b3a58c" stroke-width="2.5" stroke-linecap="round" fill="none"/><g fill="#fff"><circle cx="150" cy="135" r="3.5"/><circle cx="150" cy="180" r="3.5"/><circle cx="150" cy="225" r="3.5"/><circle cx="150" cy="270" r="3.5"/><circle cx="150" cy="310" r="3.5"/></g></svg><button>В корзину</button></div>
+    <div class="row"><span>Рубашка льняная</span><span>75 €</span></div>
+    <div class="sub">Лён, бежевая</div>
   </article>
 </main>
 
@@ -219,7 +255,7 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") closeCart();
 pay.addEventListener("click", () => { note.textContent = "Оплата пока не подключена: нужен платёжный сервис."; });
 document.querySelectorAll(".cats a").forEach(a => a.addEventListener("click", () => {
   const c = a.dataset.cat;
-  document.querySelectorAll("#shop .item").forEach(i => { i.hidden = c !== "all" && i.dataset.cat !== c; });
+  document.querySelectorAll("#shop .item").forEach(i => { i.hidden = c === "all" ? !i.dataset.best : i.dataset.cat !== c; });
   $("sec").textContent = c === "all" ? "Лучшие продажи в этом месяце" : c;
 }));
 render();
